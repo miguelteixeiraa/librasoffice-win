@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>qml/main.qml</file>
+        <file>qml/popupSign.qml</file>
+        <file>qml/assets/images/labis-librasoffice.png</file>
+        <file>gifs/Abrir (Ctrl+O).gif</file>
+    </qresource>
+</RCC>
