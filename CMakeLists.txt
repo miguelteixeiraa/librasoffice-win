@@ -48,8 +48,6 @@ else()
     )
 endif()
 
-find_package(Qt5 COMPONENTS Concurrent REQUIRED)
-
 target_compile_definitions(LIBRASOffice-win
   PRIVATE $<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:QT_QML_DEBUG>)
 target_link_libraries (LIBRASOffice-win
@@ -57,5 +55,4 @@ target_link_libraries (LIBRASOffice-win
                                Qt5::Quick
                                Qt5::Gui
                                Qt5::Widgets
-                               Qt::Concurrent
                        )
