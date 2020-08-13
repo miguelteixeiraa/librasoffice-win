@@ -5,9 +5,9 @@ LIBRASOffice_App::LIBRASOffice_App(int argc, char *argv[]) : QGuiApplication(arg
     QThread *t_eventListener = new QThread;
 
     //add events to WinEventListener and move to listener thread
-    eventListener->addListener(eventsToIdentify);
-    eventListener->moveToThread(t_eventListener);
-    connect(t_eventListener, SIGNAL(started()), eventListener, SLOT(start()));
+    listener->addEventsToIdentify(eventsToIdentify);
+    listener->moveToThread(t_eventListener);
+    connect(t_eventListener, SIGNAL(started()), listener, SLOT(listenerStart()));
 
     //start ui (systemTray and signs exibition)
     initUI();
@@ -26,9 +26,9 @@ void LIBRASOffice_App::initUI(){
     engine->load(url_popup);
 }
 
-QString LIBRASOffice_App::getEventCatched(){
-    return *eventCatched;
-}
+//QString LIBRASOffice_App::getEventCatched(){
+  //  return *eventCatched;
+//}
 
 bool LIBRASOffice_App::database_contains(const QString &eventName){
     return laso_database->contains(eventName + ".gif");

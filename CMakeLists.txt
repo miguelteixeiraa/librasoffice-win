@@ -40,10 +40,11 @@ if(ANDROID)
 else()
     add_executable(LIBRASOffice-win
       main.cpp
-      wineventlistener.cpp
-      listenercontroller.cpp
       jsonsdatabase.cpp
       librasoffice_app.cpp
+      WinEventListener/focuschangedeventhandler.cpp
+      WinEventListener/generaleventshandler.cpp
+      WinEventListener/wineventlistener.cpp
       qml.qrc
     )
 endif()

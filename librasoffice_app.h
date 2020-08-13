@@ -1,17 +1,17 @@
 #ifndef LIBRASOFFICE_APP_H
 #define LIBRASOFFICE_APP_H
 
+#include <WinEventListener/wineventlistener.h>
+
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <QQmlComponent>
 #include <QQmlContext>
 #include <QUrl>
-#include <QStringLiteral>
 #include <QList>
 #include <QString>
 #include <QThread>
 
-#include <listenercontroller.h>
 #include "jsonsdatabase.h"
 
 
@@ -36,14 +36,14 @@ class LIBRASOffice_App : QGuiApplication
     const QUrl url_systray = QStringLiteral("qrc:/qml/main.qml");
     const QUrl url_popup = QStringLiteral("qrc:/qml/popupSign.qml");
 
-    ListenerController *eventListener = new ListenerController;
+    WinEventListener *listener = new WinEventListener;
 
-    QString *eventCatched = &retrieveEventCatched;
+    QMap<QString, QString> eventDetected;
 
 public:
     explicit LIBRASOffice_App(int argc, char *argv[]);
     Q_INVOKABLE void handleSignalExibition(const bool &value);
-    Q_INVOKABLE QString getEventCatched();
+    //Q_INVOKABLE QString getEventCatched();
     Q_INVOKABLE bool database_contains(const QString &eventName);
     void initUI();
     void run();

@@ -24,8 +24,8 @@ Window {
         running: true
         triggeredOnStart: true
         onTriggered: {
-            if(f_eventCatched !== laso_backend.getEventCatched()){
-                f_eventCatched = laso_backend.getEventCatched()
+            if(f_eventCatched !== laso_backend.eventDetected["EventName"]){
+                f_eventCatched = laso_backend.eventDetected["EventName"]
                 if(laso_backend.database_contains(f_eventCatched)){
                     signGif.source = "..\\gifs\\" + f_eventCatched + ".gif";
                     librasoffice.visible = true;
